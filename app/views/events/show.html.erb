@@ -17,6 +17,16 @@
   <h3>Description: <%= @event.description %></h3>
   <p> Dietary requirements: <%= @event.dietary_requirements %></p>
 
-  <%= link_to "Update", edit_event_path %><br>
-  <%= link_to 'Back', events_path %>
+  <div class="d-flex">
+    <p>
+      🖊 <%= link_to "Edit", edit_event_path %>
+      ❌ <%= link_to "Delete",
+                event_path(@event),
+                method: :delete,
+                data: { confirm: "Are you sure you want to delete #{@event.name}?" } %>
+      
+    </p>
+  </div>
+  <br>
+  <%= link_to 'Go back to all events', events_path %>
 </div>
