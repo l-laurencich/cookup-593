@@ -1,0 +1,48 @@
+.btn-icon {
+  color: gray;
+}
+
+.btn-simple {
+  color: #4A4A4A;
+  border: 1px solid #4A4A4A;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.btn-simple:hover {
+  opacity: 1;
+  font-weight: normal;
+}
+
+.btn-cancel {
+  color: #c52d34;
+  border: 1px solid #c52d34;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.btn-cancel:hover {
+  opacity: 1;
+  font-weight: normal;
+}
+
+.btn-confirm {
+  color: #558528;
+  border: 1px solid #558528;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.btn-confirm:hover {
+  opacity: 1;
+  font-weight: normal;
+}
