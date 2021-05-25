@@ -1,8 +1,20 @@
-<h1>Events#index</h1>
-<p>Find me in app/views/events/index.html.erb</p>
 
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <% @events.each do |event| %>
+        <div class="card-product">
+          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+          <div class="card-product-infos">
+            <h2><%= event.name %></h2>
+            <p><%= event.description %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-6">
+      <%= image_tag 'map_berlin.png', class: 'col-12' %>
+    </div>
+  </div>
+</div>
 
-<p><% @events.each do |event| %></p>
-<p><%= event.name %></p>
-<p><%= event.start %></p>
-<% end %>
