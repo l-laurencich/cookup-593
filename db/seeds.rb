@@ -5,3 +5,26 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+require 'faker'
+
+Event.destroy_all
+User.destroy_all
+
+hosts = []
+100.times do
+  user = User.new ({email: Faker::Internet.email, password: "1245677", first_name: Faker::Name.unique.name, last_name: Faker::Name.unique.name, date_of_birth: Faker::Date.between(from: '1980-09-23', to: '1996-09-25'), interests: Faker::Book.genre})
+  user.save
+  hosts << user
+end
+
+100.times do
+  event = Event.new ({location: Faker::Address.full_address, start: Faker::Time.forward(days: 25,  period: :evening, format: :long), end: Faker::Time.forward(days: 5,  period: :evening, format: :long), name: Faker::Hipster.words(number: 4), description: Faker::Food.description, dietary_requirements: Faker::Food.dish, menu: Faker::Food.dish, price: rand(0.0..10.0).round(1), capacity: rand(2..8), user: hosts.sample})
+  event.save
+end
+
+
+puts "100 events & 100 users created"
+
+
+# owned_events:Event.all.sample
