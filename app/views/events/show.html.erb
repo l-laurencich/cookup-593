@@ -1,2 +1,11 @@
-<h1>Events#show</h1>
-<p>Find me in app/views/events/show.html.erb</p>
+<div class="container">
+  <h2><%= @event.name %> by <%= @event.user.first_name %> in <%= @event.location %></h2>
+  <p>📅 <%= @event.start %> until <%= @event.end %></p>
+  <p>💲 <%= @event.price %></p>
+  <p>👥 <%= @event.capacity %> free sposts</p>
+  <%# minus number of guests from bookings %>
+
+  <h3>The menu: <%= @event.menu %></h3>
+  <h3>Description: <%= @event.description %></h3>
+  <p> Dietary requirements: <%= @event.dietary_requirements %></p>
+</div>
