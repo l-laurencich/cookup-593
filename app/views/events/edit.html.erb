@@ -1,2 +1,17 @@
-<h1>Events#edit</h1>
-<p>Find me in app/views/events/edit.html.erb</p>
+<div class="d-flex justify-content-center">
+  <h1>Update Event</h1>
+</div>
+<div class="container" my-3>
+  <%= simple_form_for(@event) do |f| %>
+    <%= f.input :start%>
+    <%= f.input :end%>
+    <%= f.input :name%>
+    <%= f.input :menu%>
+    <%= f.input :location%>
+    <%= f.input :price, input_html: {min: 0}%>
+    <%= f.input :capacity, input_html: {min: 0}%>
+    <%= f.submit "Update Event", class: "btn btn-primary" %>
+  <% end %>
+
+  <%= link_to "Go back to the event", event_path(@event) %>
+</div>
