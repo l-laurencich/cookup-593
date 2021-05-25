@@ -1,11 +1,32 @@
 <div class="container">
-  <h2><%= @event.name %> by <%= @event.user.first_name %> in <%= @event.location %></h2>
-  <p>📅 <%= @event.start %> until <%= @event.end %></p>
-  <p>💲 <%= @event.price %></p>
-  <p>👥 <%= @event.capacity %> free sposts</p>
-  <%# minus number of guests from bookings %>
+  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80')">
+    <h1><%= @event.name %></h1>
+    <a href="#" class="btn btn-primary">Book this event!</a>
+  </div>
+  <div class="main-info my-3">
+    <h3>by <em><%= @event.user.first_name %></em> in 🏡<%= @event.location %></h2>
+    <p>📅 <%= @event.start %> until <%= @event.end %></p>
+  </div>
+  <div class="price_guests d-flex justify-content-between">
+    <p>💲 <%= @event.price %></p>
+    <p>👥 <%= @event.capacity %> free sposts</p>
+    <%# minus number of guests from bookings %>
+  </div>
 
   <h3>The menu: <%= @event.menu %></h3>
   <h3>Description: <%= @event.description %></h3>
   <p> Dietary requirements: <%= @event.dietary_requirements %></p>
+
+  <div class="d-flex">
+    <p>
+      🖊 <%= link_to "Edit", edit_event_path %>
+      ❌ <%= link_to "Delete",
+                event_path(@event),
+                method: :delete,
+                data: { confirm: "Are you sure you want to delete #{@event.name}?" } %>
+      
+    </p>
+  </div>
+  <br>
+  <%= link_to 'Go back to all events', events_path %>
 </div>
