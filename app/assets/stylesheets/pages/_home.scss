@@ -2,9 +2,23 @@
 
 .container {
   width: 900px;
+  margin-bottom: 200px;
   padding: 20px;
 }
 
-body {
-  margin-top: 0px;
+.card-container {
+  width: 80%;
+  height: auto;
+  margin: auto;
+  text-align: center;
+  padding: 50px 0px 50px 0px;
+}
+
+.cards {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  .card-large {
+    width: 400px;
+  }
 }
