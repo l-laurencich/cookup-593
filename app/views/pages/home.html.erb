@@ -1,7 +1,6 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1536392706976-e486e2ba97af?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8ZGlubmVyfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60);">
   <div class="row justify-content-between">
-    <a href="http://localhost:3000/#"><img src="/assets/cookup_logo_white.png" alt="logo"></a>
-    <!--<a href="http://localhost:3000/#"><h2 class="loginBanner">Login</h2></a>-->
+    <%= link_to image_tag("/assets/cookup_logo_white.png", :alt => "logo", :class => "banner_img"), root_path %>
     <h2><%= link_to 'Login', new_user_session_path %></h2>
   </div>
   <div class="container">
@@ -17,9 +16,9 @@
   </div>
 </div>
 
-<div class="container">
+<div class="card-container">
 
-  <img class="avatar-bordered" alt="avatar" src="https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1617950447/ezgro2ykkw3sgnxgfuz3.jpg" />
+  <!--<img class="avatar-bordered" alt="avatar" src="https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1617950447/ezgro2ykkw3sgnxgfuz3.jpg" />
 
   <br>
   <br>
@@ -37,24 +36,56 @@
       <h2>Axe Cut Food Feast</h2>
       <p>Fresh Norwegian salmon, lightly brushed with our herbed Dijon mustard sauce, with choice of two sides.</p>
     </div>
-  </div>
+  </div>-->
 
-  <br>
-  <br>
+  <div class="cards">
 
-  <div class="card-large">
-    <img src="https://images.unsplash.com/photo-1563176057-26febab5c153?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fGtvcmVhbiUyMGJicXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="image">
-    <div class="card-large-footer">
-      <div>
-        <h2>Korean BBQ Chicken</h2>
+    <div class="card-large">
+      <img src="https://images.unsplash.com/photo-1563176057-26febab5c153?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fGtvcmVhbiUyMGJicXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="image">
+      <div class="card-large-footer">
+        <div>
+          <h2>Korean BBQ Chicken</h2>
+        </div>
+        <h2>€ 7 pp</h2>
       </div>
-      <h2>€ 7 pp</h2>
+      <div class="card-large-sub-footer">
+          <p>Berlin-Mitte</p>
+          <p>3 free spots</p>
+          <p>27.06.2021</p>
+      </div>
     </div>
-    <div class="card-large-sub-footer">
-        <p>Berlin-Mitte</p>
-        <p>3 free spots</p>
-        <p>27.06.2021</p>
+
+      <div class="card-large">
+      <img src="https://images.unsplash.com/photo-1563176057-26febab5c153?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fGtvcmVhbiUyMGJicXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="image">
+      <div class="card-large-footer">
+        <div>
+          <h2>Korean BBQ Chicken</h2>
+        </div>
+        <h2>€ 7 pp</h2>
+      </div>
+      <div class="card-large-sub-footer">
+          <p>Berlin-Mitte</p>
+          <p>3 free spots</p>
+          <p>27.06.2021</p>
+      </div>
     </div>
+
+      <div class="card-large">
+      <img src="https://images.unsplash.com/photo-1563176057-26febab5c153?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fGtvcmVhbiUyMGJicXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="image">
+      <div class="card-large-footer">
+        <div>
+          <h2>Korean BBQ Chicken</h2>
+        </div>
+        <h2>€ 7 pp</h2>
+      </div>
+      <div class="card-large-sub-footer">
+          <p>Berlin-Mitte</p>
+          <p>3 free spots</p>
+          <p>27.06.2021</p>
+      </div>
+    </div>
+
+
   </div>
 
 </div>
