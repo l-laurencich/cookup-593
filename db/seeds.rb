@@ -19,7 +19,7 @@ hosts = []
 end
 
 100.times do
-  event = Event.new ({location: Faker::Address.full_address, start: Faker::Time.forward(days: 25,  period: :evening, format: :long), end: Faker::Time.forward(days: 5,  period: :evening, format: :long), name: Faker::FunnyName.name, description: Faker::Food.description, dietary_requirements: Faker::Food.dish, menu: Faker::Food.dish, price: rand(0.0..10.0).round(1), capacity: rand(2..8), user: hosts.sample})
+  event = Event.new ({location: Faker::Address.city, start: Faker::Time.forward(days: 25,  period: :evening, format: :long), end: Faker::Time.forward(days: 5,  period: :evening, format: :long), name: Faker::FunnyName.name, description: Faker::Food.description, dietary_requirements: Faker::Food.dish, menu: Faker::Food.dish, price: rand(0.0..10.0).round(2), capacity: rand(2..8), user: hosts.sample})
   event.save
 end
 
