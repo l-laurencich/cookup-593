@@ -14,11 +14,8 @@
   padding: 50px 0px 50px 0px;
 }
 
-.cards {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  .card-large {
-    width: 400px;
-  }
+.home-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 32px;
 }
