@@ -1,2 +1,8 @@
 // Import page-specific CSS files here.
 @import "home";
+
+.index-container {
+  width: 90%;
+  justify-content: center;
+  margin: auto;
+}

@@ -6,4 +6,6 @@ class Event < ApplicationRecord
   validates :name, length: { minimum: 6 }
   validates :capacity, numericality: { greater_than: 0, less_than: 10 }
   validates :price, numericality: { greater_than: 0, less_than: 20 }
+  geocoded_by :location
+  after_validation :geocode, if: :will_save_change_to_location?
 end
