@@ -14,10 +14,10 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
-    @event.user = current_user
-    @event.save
+    @user = current_user
+    @event.user = @user
     if @event.save
-      redirect_to root_path
+      redirect_to event_path(@event)
     else
       render 'new'
     end
@@ -45,6 +45,6 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:start, :end, :name, :menu, :location, :price, :capacity)
+    params.require(:event).permit(:start, :end, :name, :menu, :location, :price, :capacity, :description)
   end
 end
