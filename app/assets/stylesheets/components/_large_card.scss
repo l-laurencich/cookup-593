@@ -4,7 +4,12 @@
   background-color: white;
   box-shadow: 0 0 23px rgba(126, 97, 97, 0.2);
   border-radius: 5px;
-  width: 500px;
+  width: 200px;
+  text-decoration: none !important;
+}
+
+.card-large h2 a {
+  text-decoration: none !important ;
 }
 
 .card-large > img {
