@@ -1,48 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600&display=swap');
+
 .btn-icon {
   color: gray;
 }
 
 .btn-simple {
-  color: #4A4A4A;
-  border: 1px solid #4A4A4A;
+  background-color: #ff8474;
+  color: white;
+  border: 0px solid #4A4A4A;
   padding: 8px 24px;
-  border-radius: 50px;
-  font-weight: lighter;
+  border-radius: 15px;
+  font-weight: 300;
+  font-family: 'Roboto', sans-serif;
   opacity: 0.6;
   transition: opacity 0.3s ease;
 }
 
 .btn-simple:hover {
   opacity: 1;
-  font-weight: normal;
+  font-weight: 400;
+  color: white;
+  box-shadow: 0 0 23px rgba(126, 97, 97, 0.2);
 }
 
 .btn-cancel {
-  color: #c52d34;
-  border: 1px solid #c52d34;
+  background-color: #9f5f80;
+  color: white;
+  border: 0px solid #c52d34;
   padding: 8px 24px;
-  border-radius: 50px;
-  font-weight: lighter;
+  border-radius: 15px;
+  font-weight: 300;
+  font-family: 'Roboto', sans-serif;
   opacity: 0.6;
   transition: opacity 0.3s ease;
 }
 
 .btn-cancel:hover {
   opacity: 1;
-  font-weight: normal;
+  font-weight: 400;
+  color: white;
+  box-shadow: 0 0 23px rgba(126, 97, 97, 0.2);
 }
 
 .btn-confirm {
-  color: #558528;
-  border: 1px solid #558528;
+  background-color: #583d72;
+  color: white;
+  border: 0px solid #558528;
   padding: 8px 24px;
-  border-radius: 50px;
-  font-weight: lighter;
+  border-radius: 15px;
+  font-weight: 300;
+  font-family: 'Roboto', sans-serif;
   opacity: 0.6;
   transition: opacity 0.3s ease;
 }
 
 .btn-confirm:hover {
   opacity: 1;
-  font-weight: normal;
+  font-weight: 400;
+  color: white;
+  box-shadow: 0 0 23px rgba(126, 97, 97, 0.2);
 }

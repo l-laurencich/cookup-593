@@ -1,30 +1,35 @@
-.card-trip {
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600&display=swap');
+
+.card-large {
   background-color: white;
-  box-shadow: 0 0 25px rgba(0,0,0,0.3);
+  box-shadow: 0 0 23px rgba(126, 97, 97, 0.2);
   border-radius: 5px;
   width: 500px;
 }
 
-.card-trip > img {
+.card-large > img {
   width: 100%;
   height: 260px;
   border-radius: 5px 5px 0px 0px;
   object-fit: cover;
 }
 
-.card-trip h2 {
+.card-large h2 {
   margin: 0px;
   font-size: 20px;
-  font-weight: bold;
+  font-weight: 600;
+  font-family: 'Roboto', sans-serif;
 }
 
-.card-trip p {
+.card-large p {
   margin: 0px;
   font-size: 15px;
   opacity: 0.7;
+  font-weight: 300;
+  font-family: 'Roboto', sans-serif;
 }
 
-.card-trip .card-trip-footer {
+.card-large .card-large-footer {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -32,7 +37,7 @@
   position: relative;
 }
 
-.card-trip .card-trip-sub-footer {
+.card-large .card-large-sub-footer {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -40,7 +45,7 @@
   position: relative;
 }
 
-.card-trip-footer .avatar-user {
+.card-large-footer .avatar-user {
   position: absolute;
   right: 25px;
   bottom: 40px;
