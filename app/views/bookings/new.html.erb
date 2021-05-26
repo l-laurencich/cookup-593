@@ -1,0 +1,10 @@
+<div class="container">
+  <h3>Book to join <%= @event.name %>:</h3>
+  <%= simple_form_for [@event, @booking] do |f| %>
+    <%= f.input :message, placeholder: 'Write a private message to your host' %>
+    <%= f.input :number_of_guests, input_html: {min: 1}%>
+    <%= f.submit "Book this event!", class: 'btn btn-primary' %>
+  <% end %>
+    <br>
+  <%= link_to "Go back to the event", event_path(@event) %>
+</div>
