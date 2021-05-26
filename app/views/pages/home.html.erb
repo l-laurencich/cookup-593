@@ -1,6 +1,9 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1536392706976-e486e2ba97af?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8ZGlubmVyfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60);">
+  <div class="row justify-content-between">
+    <a href="http://localhost:3000/#"><img src="/assets/cookup_logo_white.png" alt="logo"></a>
+    <a href="http://localhost:3000/#"><h2>Login</h2></a>
+  </div>
   <div class="container">
-    <h1><strong>cookUP</strong> placeholder text</h1>
     <%= simple_form_for :search, url: root_path, method: :get do |f| %>
       <div class="search-form-control form-group">
         <input class="form-control string required" type="text" name="search[query]" placeholder="Find your next dinner..." id="search_query" />
@@ -26,15 +29,26 @@
   <br>
   <br>
 
-  <div class="card-trip">
+  <div class="card-small">
+    <img src="https://images.unsplash.com/photo-1501623364001-70bfe454b916?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YXhlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60" alt="image">
+    <div class="card-small-info">
+      <h2>Axe Cut Food Feast</h2>
+      <p>Fresh Norwegian salmon, lightly brushed with our herbed Dijon mustard sauce, with choice of two sides.</p>
+    </div>
+  </div>
+
+  <br>
+  <br>
+
+  <div class="card-large">
     <img src="https://images.unsplash.com/photo-1563176057-26febab5c153?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fGtvcmVhbiUyMGJicXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="image">
-    <div class="card-trip-footer">
+    <div class="card-large-footer">
       <div>
         <h2>Korean BBQ Chicken</h2>
       </div>
       <h2>€ 7 pp</h2>
     </div>
-    <div class="card-trip-sub-footer">
+    <div class="card-large-sub-footer">
         <p>Berlin-Mitte</p>
         <p>3 free spots</p>
         <p>27.06.2021</p>
@@ -45,14 +59,11 @@
 
 <div class="footer">
   <div class="footer-links">
-    <a href="#"><i class="fab fa-github"></i></a>
     <a href="#"><i class="fab fa-instagram"></i></a>
     <a href="#"><i class="fab fa-facebook"></i></a>
     <a href="#"><i class="fab fa-twitter"></i></a>
-    <a href="#"><i class="fab fa-linkedin"></i></a>
   </div>
   <div class="footer-copyright">
-    Made with <i class="fas fa-dumbbell"></i> by Serene Octagon
+    Made with <i class="fas fa-dumbbell"></i> by Anonymous Iguana
   </div>
 </div>
-

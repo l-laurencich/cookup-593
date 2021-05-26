@@ -1,7 +1,7 @@
 <div class="container">
   <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80')">
     <h1><%= @event.name %></h1>
-    <a href="#" class="btn btn-primary">Book this event!</a>
+    <%= link_to 'Book this event!', new_event_booking_path(@event), class: 'btn btn-primary' %>
   </div>
   <div class="main-info my-3">
     <h3>by <em><%= @event.user.first_name %></em> in 🏡<%= @event.location %></h2>
@@ -26,6 +26,22 @@
                 data: { confirm: "Are you sure you want to delete #{@event.name}?" } %>
       
     </p>
+  </div>
+
+  <div class="list-group">
+    <h3>Bookings (<%= Booking.count%>):</h3>
+    <%  @event.bookings.each do |booking| %>
+      <div class="list-group-item list-group-item-action flex-column align-items-start">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1"><%= booking.user.email %></h5>
+          <small><%= booking.number_of_guests %> guests</small>
+        </div>
+        <div class="d-flex w-100 justify-content-between">
+          <p class="mb-1">message: <%= booking.message %></p>
+          <small>Confirm Decline</small>
+        </div>
+      </div>
+    <% end %>
   </div>
   <br>
   <%= link_to 'Go back to all events', events_path %>
