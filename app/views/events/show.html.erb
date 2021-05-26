@@ -28,17 +28,20 @@
     </p>
   </div>
 
-  <div class="list-group">
+<div class="list-group">
     <h3>Bookings (<%= Booking.count%>):</h3>
     <%  @event.bookings.each do |booking| %>
       <div class="list-group-item list-group-item-action flex-column align-items-start">
         <div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1"><%= booking.user.email %></h5>
+          <div class="d-flex align-items-center">
+            <img class="avatar-bordered mr-3 mb-3" alt="avatar" src="https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1617950447/ezgro2ykkw3sgnxgfuz3.jpg" />
+            <h5 class="mb-1"><%= booking.user.email %></h5>
+          </div>
           <small><%= booking.number_of_guests %> guests</small>
         </div>
         <div class="d-flex w-100 justify-content-between">
           <p class="mb-1">message: <%= booking.message %></p>
-          <small>Confirm Decline</small>
+          <small>✅ Confirm ❌ Decline | <%= link_to 'Cancel', booking_path(booking), method: :delete, data: { confirm: "Are you sure you want to cancel your booking?"}, class: 'text-danger' %></small>
         </div>
       </div>
     <% end %>
