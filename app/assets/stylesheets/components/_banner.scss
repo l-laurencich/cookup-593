@@ -1,36 +1,25 @@
 .banner {
-	background-size: cover;
-	background-position: center;
-	padding: 150px;
-	position: relative;
-	p {
-		font-size: 20px;
-		color: white;
-		opacity: .7;
-		text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-	}
-	.banner_img {
-		position: absolute;
-		top: 15px;
-		left: 15px;
-		width: 250px;
-		&:hover {
-			opacity: 0.9;
-		}
-	}
-	h2 {
-		color: white;
-		position: absolute;
-		top: 35px;
-		right: 35px;		
-	}
+  background-image: linear-gradient(rgb(0, 0, 0), rgba(0, 0, 0, 0.1)),
+    url(https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjV8fGRpbm5lcnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60);
+  background-size: cover;
+  background-position: center;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-	h2 a {
-		text-decoration: none !important;
-		color: white;
-		&:hover {
-			opacity: 0.9;
-		}
-	}
+.banner h1 {
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  font-size: 32px;
+  font-weight: bold;
+}
 
+.banner p {
+  font-size: 20px;
+  color: white;
+  opacity: 0.8;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }

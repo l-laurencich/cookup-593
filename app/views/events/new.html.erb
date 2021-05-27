@@ -1,8 +1,8 @@
-<%= render 'shared/navbar' %>
-<div class="d-flex justify-content-center">
+<div class="container">
+<!--<div class="d-flex justify-content-center">-->
   <h1>Create an Event</h1>
-</div>
-<div class="container" my-3>
+<!--</div>
+<div class="container" my-3>-->
   <%= simple_form_for(@event) do |f| %>
     <%= f.input :start%>
     <%= f.input :end%>
@@ -14,4 +14,5 @@
     <%= f.input :description %>
     <%= f.submit "Submit", class: "btn btn-confirm" %>
   <% end %>
+<!--</div>-->
 </div>

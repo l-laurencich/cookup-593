@@ -1,13 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600&display=swap');
-
 .btn-icon {
-  color: gray;
+  color: $dark-grey;
 }
 
 .btn-simple {
-  background-color: #ff8474;
+  background-color: $pink;
   color: white;
-  border: 0px solid #4A4A4A;
+  border: 0px solid gray;
   padding: 8px 24px;
   border-radius: 15px;
   font-weight: 300;
@@ -24,9 +22,9 @@
 }
 
 .btn-cancel {
-  background-color: #9f5f80;
+  background-color: $purple;
   color: white;
-  border: 0px solid #c52d34;
+  border: 0px solid gray;
   padding: 8px 24px;
   border-radius: 15px;
   font-weight: 300;
@@ -43,9 +41,9 @@
 }
 
 .btn-confirm {
-  background-color: #583d72;
+  background-color: $dark-purple;
   color: white;
-  border: 0px solid #558528;
+  border: 0px solid gray;
   padding: 8px 24px;
   border-radius: 15px;
   font-weight: 300;
@@ -59,4 +57,18 @@
   font-weight: 400;
   color: white;
   box-shadow: 0 0 23px rgba(126, 97, 97, 0.2);
+}
+
+.btn-flat {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: $dark-purple;
+  transition: background 0.3s ease;
+}
+
+.btn-flat:hover {
+  background: $dark-purple;
+  color: white;
+  opacity: 0.9;
 }
