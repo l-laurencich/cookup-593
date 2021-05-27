@@ -14,6 +14,7 @@
     <%= f.input :dietary_requirements, label: 'Do this event cater towards dietary requirements?',
                   placeholder: 'Vegetarian, Halal, ...'%>
     <%= f.input :description, label: "Anything else you want to add?", placeholder: "Write it here..."%>
+    <%= f.input :photo, as: :file, label: "Add a picture of the dining space" %>
     <%= f.submit "Submit", class: "btn btn-confirm" %>
   <% end %>
 </div>
