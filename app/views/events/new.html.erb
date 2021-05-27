@@ -4,14 +4,16 @@
 </div>
 <div class="container" my-3>
   <%= simple_form_for(@event) do |f| %>
-    <%= f.input :start%>
-    <%= f.input :end%>
-    <%= f.input :name%>
-    <%= f.input :menu%>
-    <%= f.input :location%>
-    <%= f.input :price, input_html: {min: 0}%>
-    <%= f.input :capacity, input_html: {min: 0}%>
-    <%= f.input :description %>
+    <%= f.input :name, label: 'Give your event an interesting name'%>
+    <%= f.input :menu, label: "What's gonna be on the menu?"%>
+    <%= f.input :location, label: "Where is the event taking place?"%>
+    <%= f.input :start, as: :datetime%>
+    <%# <%= f.input :end %>
+    <%= f.input :price, input_html: {min: 0}, label: "How much should each guest pay?"%>
+    <%= f.input :capacity, input_html: {min: 0}, label: "How many people can join your event?"%>
+    <%= f.input :dietary_requirements, label: 'Do this event cater towards dietary requirements?',
+                  placeholder: 'Vegetarian, Halal, ...'%>
+    <%= f.input :description, label: "Anything else you want to add?", placeholder: "Write it here..."%>
     <%= f.submit "Submit", class: "btn btn-confirm" %>
   <% end %>
 </div>
