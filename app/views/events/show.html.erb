@@ -20,12 +20,15 @@
 
   <div class="d-flex">
     <p>
+      <% if policy(@event).edit? %>
       🖊 <%= link_to "Edit", edit_event_path %>
+      <% end %>
+      <% if policy(@event).destroy? %>
       ❌ <%= link_to "Delete",
                 event_path(@event),
                 method: :delete,
                 data: { confirm: "Are you sure you want to delete #{@event.name}?" } %>
-      
+      <% end %>
     </p>
   </div>
 
