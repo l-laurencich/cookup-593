@@ -18,6 +18,10 @@ class BookingsController < ApplicationController
     end
   end
 
+  def update
+    raise
+  end
+
   def destroy
     @booking = Booking.find(params[:id])
     authorize @booking
@@ -28,6 +32,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:message, :event_id, :number_of_guests)
+    params.require(:booking).permit(:message, :event_id, :number_of_guests, :status)
   end
 end

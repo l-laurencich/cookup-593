@@ -23,6 +23,12 @@
               </div>
               <div class="d-flex w-100 justify-content-between">
                 <p class="mb-1">message: <%= booking.message %></p>
+                <p>Status: <%= booking.status %></p>
+                 <%= link_to 'Confirm Booking', booking_path(booking, status: "approved"), method: :patch %>
+                <%= simple_form_for(booking, url: booking_path(booking), html: { method: :patch }) do |f| %>
+                  <%= f.input :status, collection: %w(rejected approved)%>
+                  <%= f.button :submit %>
+                <% end %>
                 <small>✅ Confirm ❌ Decline </small>
               </div>
             </div>
