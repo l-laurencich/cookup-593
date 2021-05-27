@@ -1,21 +1,10 @@
-// Specific CSS for your home-page
+// home page css
+@import "global";
 
-.container {
-  width: 900px;
-  margin-bottom: 200px;
-  padding: 20px;
+.banner {
+  margin-bottom: 5rem;
 }
 
-.card-container {
-  width: 80%;
-  height: auto;
-  margin: auto;
-  text-align: center;
-  padding: 50px 0px 50px 0px;
-}
-
-.home-cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 32px;
+.space-cards {
+  margin-bottom: 8rem;
 }

@@ -1,8 +1,8 @@
-<%= render 'shared/navbar' %>
-<div class="d-flex justify-content-center">
-  <h1>Update Event</h1>
-</div>
-<div class="container" my-3>
+<div class="container">
+<!--<div class="d-flex justify-content-center">-->
+  <h2>Update Event</h2>
+<!--</div>
+<div class="container" my-3>-->
   <%= simple_form_for(@event) do |f| %>
     <%= f.input :start%>
     <%= f.input :end%>
@@ -15,4 +15,5 @@
   <% end %>
 
   <%= link_to "Go back to the event", event_path(@event) %>
+<!--</div>-->
 </div>
