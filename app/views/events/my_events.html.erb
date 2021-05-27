@@ -1,0 +1,35 @@
+<%= render 'shared/navbar' %>
+<div class="container">
+  <div class="list-group">
+      <h3>My hosted events (<%= @events.count%>):</h3>
+      <%  @events.each do |event| %>
+        <div class="list-group-item list-group-item-action flex-column align-items-start">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1"><strong><%= event.name %></strong></h5>
+            <p class="mb-1"><em>When?</em> <%= event.start %></p>
+            <p><%= link_to "Details", event_path(event), class: "btn-simple" %></p>
+          </div>
+          <br>
+          <p>This event has <%= pluralize event.bookings.count, 'booking' %>:</p>
+          
+          <%  event.bookings.each do |booking| %>
+            <div class="list-group-item list-group-item-action flex-column align-items-start">
+              <div class="d-flex w-100 justify-content-between">
+                <div class="d-flex align-items-center">
+                  <img class="avatar-bordered mr-3 mb-3" alt="avatar" src="https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1617950447/ezgro2ykkw3sgnxgfuz3.jpg" />
+                  <h5 class="mb-1"><%= booking.user.email %></h5>
+                </div>
+                <small><%= booking.number_of_guests %> guests</small>
+              </div>
+              <div class="d-flex w-100 justify-content-between">
+                <p class="mb-1">message: <%= booking.message %></p>
+                <small>✅ Confirm ❌ Decline </small>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+  </div>
+  <br>
+  <%= link_to 'Go back to all events', events_path %>
+</div>
