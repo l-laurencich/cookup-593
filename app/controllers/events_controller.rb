@@ -2,7 +2,8 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def index
-    @events = Event.all
+    # @events = Event.all
+    @events = policy_scope(Event)
 
     @markers = @events.geocoded.map do |event|
       {
@@ -13,17 +14,29 @@ class EventsController < ApplicationController
     end
   end
 
+  def my_bookings
+    @bookings = Booking.where(user: current_user)
+    authorize Event
+  end
+
+  def my_events
+    @events = current_user.owned_events
+    authorize Event
+  end
+
   def show
   end
 
   def new
     @event = Event.new
+    authorize @event
   end
 
   def create
     @event = Event.new(event_params)
     @user = current_user
     @event.user = @user
+    authorize @event
     if @event.save
       redirect_to event_path(@event)
     else
@@ -50,9 +63,10 @@ class EventsController < ApplicationController
 
   def set_event
     @event = Event.find(params[:id])
+    authorize @event
   end
 
   def event_params
-    params.require(:event).permit(:start, :end, :name, :menu, :location, :price, :capacity, :description)
+    params.require(:event).permit(:start, :name, :menu, :location, :price, :capacity, :description, :dietary_requirements)
   end
 end
