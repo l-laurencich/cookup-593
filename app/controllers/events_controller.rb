@@ -13,6 +13,14 @@ class EventsController < ApplicationController
     end
   end
 
+  def my_bookings
+    @bookings = Booking.where(user: current_user)
+  end
+
+  def my_events
+    @events = current_user.owned_events
+  end
+
   def show
   end
 
