@@ -9,4 +9,9 @@ class Event < ApplicationRecord
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
   has_one_attached :photo
+
+  def self.find_query(query)
+    events = all
+    events = events.where("location ILIKE ?", query)
+  end
 end

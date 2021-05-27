@@ -1,0 +1,28 @@
+.card {
+  width: 355px;
+  background-color: white;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0px 0px 5px $global-border;
+  color: $dark-grey;
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+
+.card-body {
+  padding: 15px;
+}
+
+.card:hover {
+  transform: scale(1.01);
+  opacity: 0.9;
+}
+
+.card img {
+  width: 100%;
+  border-radius: 4px;
+}
+
+#large-card {
+  height: auto;
+}

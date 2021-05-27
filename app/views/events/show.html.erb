@@ -1,4 +1,3 @@
-<%= render 'shared/navbar' %>
 <div class="container">
   <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @event.photo.key %>')">
     <h1><%= @event.name %></h1>
@@ -8,25 +7,22 @@
     <h3>by <em><%= @event.user.first_name %></em> in 🏡<%= @event.location %></h2>
     <p>📅 <%= @event.start %> until <%= @event.end %></p>
   </div>
-  <div class="price_guests d-flex justify-content-between">
-    <p>💲 <%= @event.price %></p>
-    <p>👥 <%= @event.capacity %> free sposts</p>
+  <div class="price_guests d-flex justify-content-between pb-3">
+    <div class="d-flex justify-content-between align-items-center"><i class="fas fa-euro-sign" aria-hidden="true"></i><h4><%= @event.price %></h4></div>
+    <div class="d-flex justify-content-between align-items-center"><i class="fas fa-users" aria-hidden="true"></i><h4><%= @event.capacity %> free spots</h4></div>
     <%# minus number of guests from bookings %>
   </div>
 
-  <h3>The menu: <%= @event.menu %></h3>
-  <h3>Additional Info: <%= @event.description %></h3>
+  <h4>The menu: <%= @event.menu %></h4>
+  <h4>Description: <%= @event.description %></h4>
   <p> Dietary requirements: <%= @event.dietary_requirements %></p>
 
-  <div class="d-flex">
-    <p>
-      🖊 <%= link_to "Edit", edit_event_path %>
-      ❌ <%= link_to "Delete",
+  <div class="d-flex align-items-center pb-3">
+      <i class="fas fa-pen-square" aria-hidden="true"></i><h4><%= link_to "Edit", edit_event_path %></h4>
+      <i class="fas fa-times" aria-hidden="true"></i><h4><%= link_to "Delete",
                 event_path(@event),
                 method: :delete,
-                data: { confirm: "Are you sure you want to delete #{@event.name}?" } %>
-      
-    </p>
+                data: { confirm: "Are you sure you want to delete #{@event.name}?" } %></h4>
   </div>
 
   <br>

@@ -9,6 +9,8 @@
   color: black;
   &:hover{
     color: black;
+    opacity: 0.9;
+    transform: scale(1.01);
   }
 }
 
@@ -21,14 +23,14 @@
 
 .card-large h2 {
   margin: 0px;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 600;
   font-family: 'Roboto', sans-serif;
 }
 
 .card-large p {
   margin: 0px;
-  font-size: 15px;
+  font-size: 12px;
   opacity: 0.7;
   font-weight: 300;
   font-family: 'Roboto', sans-serif;
