@@ -2,9 +2,11 @@
 @import "home";
 
 .index-container {
-  width: 90%;
+  width: 80%;
+  max-width: 1500px;
   justify-content: center;
   margin: auto;
+  padding-top: 20px;
 }
 
 .cards {
