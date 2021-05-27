@@ -2,8 +2,15 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def index
-    # @events = Event.all
-    @events = policy_scope(Event)
+    if params[:query].present?
+      @events = policy_scope(Event)
+      @events = @events.find_query(params[:query])if params[:query].present?
+      if @events.empty?
+        redirect_to events_path, notice:"Sorry, we could not find any event in #{params[:query]}, but you can create your own event!"
+      end
+    else
+      @events = policy_scope(Event)
+    end
 
     @markers = @events.geocoded.map do |event|
       {

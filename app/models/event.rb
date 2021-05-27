@@ -8,4 +8,9 @@ class Event < ApplicationRecord
   validates :price, numericality: { greater_than: 0, less_than: 20 }
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
+
+  def self.find_query(query)
+    events = all
+    events = events.where("location ILIKE ?", query)
+  end
 end
