@@ -5,9 +5,9 @@ class EventsController < ApplicationController
   def index
     if params[:query].present?
       @events = policy_scope(Event)
-      @events = @events.find_query(params[:query])if params[:query].present?
+      @events = Event.near(params[:query], 4)
       if @events.empty?
-        redirect_to events_path, notice:"Sorry, we could not find any event in #{params[:query]}, but you can create your own event!"
+        redirect_to events_path, notice:"Sorry, we could not find any event in #{params[:query]}, but feel free to browse all the other events here!"
       end
     else
       @events = policy_scope(Event)

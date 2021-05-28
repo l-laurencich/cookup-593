@@ -20,7 +20,7 @@ hosts = []
   hosts << peter
 
   event = Event.new ({location: 'Balanstraße 73 München', start: ' Sat, 29 May 2021 19:00:00 UTC +00:00', name: 'PizzaParty with the Griffins', description: 'Come over to our House this Friday and enjoy delicous Pizza, homemade after our Family recipe', dietary_requirements: 'vegetarian friendly options', menu: 'Homemade Pizzas with different toppings', price: 7.50, capacity: 4, user: peter})
-  file = URI.open("http://loremflickr.com/300/300/#{event.menu.gsub(' ','')}")
+  file = URI.open("http://loremflickr.com/300/300/#{event.menu.gsub(' ','&')}")
   event.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
   event.save
 
