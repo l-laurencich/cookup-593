@@ -1,11 +1,15 @@
 <div class="container">
-  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @event.photo.key %>')">
+  <div class="show-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @event.photo.key %>')">
+    <div class="show-container">
     <h1><%= @event.name %></h1>
-    <%= link_to 'Book this event!', new_event_booking_path(@event), class: 'btn btn-confirm' %>
+    <%= link_to 'Book this event!', new_event_booking_path(@event), class: 'btn btn-simple' %>
+    </div>
   </div>
   <div class="main-info my-3">
-    <h3>by <em><%= @event.user.first_name %></em> in 🏡<%= @event.location %></h2>
-    <p>📅 <%= @event.start %> until <%= @event.end %></p>
+    <h3>by <em><%= @event.user.first_name %></em> in<i class="fas fa-house-user" aria-hidden="true"></i><%= @event.location %></h2>
+    <div class="d-flex justify-content-start pt-2">
+    <i class="fas fa-pen-square" aria-hidden="true"></i><p><strong><%= @event.start.strftime("%-d %b %Y, %H:%M") %></strong></p>
+    </div>
   </div>
   <div class="price_guests d-flex justify-content-between pb-3">
     <div class="d-flex justify-content-between align-items-center"><i class="fas fa-euro-sign" aria-hidden="true"></i><h4><%= @event.price %></h4></div>
@@ -13,23 +17,22 @@
     <%# minus number of guests from bookings %>
   </div>
 
-  <h4>The menu: <%= @event.menu %></h4>
-  <h4>Description: <%= @event.description %></h4>
-  <p> Dietary requirements: <%= @event.dietary_requirements %></p>
+  <h4><strong>Menu:</strong> <%= @event.menu %></h4>
+  <h4><strong>Description:</strong> <%= @event.description %></h4>
+  <p><strong>Dietary requirements:</strong> <%= @event.dietary_requirements %></p>
 
-  <div class="d-flex">
-    <p>
-      <% if user_signed_in? && policy(@event).edit? %>
-        <%= link_to "🖊 Edit", edit_event_path %>
-      <% end %>
-      <% if policy(@event).destroy? %>
-        <%= link_to "❌ Delete",
-                  event_path(@event),
-                  method: :delete,
-                  data: { confirm: "Are you sure you want to delete #{@event.name}?" } %>
-      <% end %>
-    </p>
+  <div class="d-flex align-items-center pb-3">
+    <% if user_signed_in? && policy(@event).edit? %>
+      <i class="fas fa-pen-square" aria-hidden="true"></i><h4><%= link_to "Edit", edit_event_path, class: "show-edit" %></h4>
+    <% end %>
+    <% if policy(@event).destroy? %>  
+      <i class="fas fa-times" aria-hidden="true"></i><h4><%= link_to "Delete",
+                event_path(@event), class: "show-delete",
+                method: :delete,
+                data: { confirm: "Are you sure you want to delete #{@event.name}?" } %></h4>
+    <% end %>
   </div>
 
   <br>
-  <%= link_to 'Go back to all events', events_path %>
+  <%= link_to 'Back To Events', events_path, class: 'btn btn-confirm' %>
+</div>

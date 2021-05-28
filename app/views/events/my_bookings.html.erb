@@ -1,7 +1,7 @@
-<%= render 'shared/navbar' %>
 <div class="container">
   <div class="list-group">
       <h3>My bookings (<%= @bookings.count%>):</h3>
+      <br>
       <%  @bookings.each do |booking| %>
         <div class="list-group-item list-group-item-action flex-column align-items-start">
           <div class="d-flex w-100 justify-content-between">
@@ -18,5 +18,5 @@
       <% end %>
   </div>
   <br>
-  <%= link_to 'Go back to all events', events_path %>
+  <%= link_to 'Back To Events', events_path, class: 'btn btn-confirm' %>
 </div>
