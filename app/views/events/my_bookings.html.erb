@@ -11,7 +11,8 @@
           <div class="d-flex w-100 justify-content-between">
             <p class="mb-1"><em>Where?</em> <%= booking.event.location %></p>
             <p class="mb-1"><em>When?</em> <%= booking.event.start %></p>
-            <small><%= link_to 'Cancel', booking_path(booking), method: :delete, data: { confirm: "Are you sure you want to cancel your booking?"}, class: 'text-danger' %></small>
+            <p>Status: <%= booking.status %></p>
+            <p><%= link_to 'Cancel', booking_path(booking), method: :delete, data: { confirm: "Are you sure you want to cancel your booking?"}, class: 'text-danger' %></small></p>
           </div>
         </div>
       <% end %>

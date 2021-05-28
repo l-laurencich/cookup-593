@@ -8,7 +8,7 @@
   <div class="main-info my-3">
     <h3>by <em><%= @event.user.first_name %></em> in<i class="fas fa-house-user" aria-hidden="true"></i><%= @event.location %></h2>
     <div class="d-flex justify-content-start pt-2">
-    <i class="fas fa-pen-square" aria-hidden="true"></i><p>From <strong><%= @event.start.strftime("%-d %b %Y, %H:%M") %></strong> until <strong><%= @event.end.strftime("%-d %b %Y, %H:%M") %></strong></p>
+    <i class="fas fa-pen-square" aria-hidden="true"></i><p><strong><%= @event.start.strftime("%-d %b %Y, %H:%M") %></strong></p>
     </div>
   </div>
   <div class="price_guests d-flex justify-content-between pb-3">
@@ -22,11 +22,15 @@
   <p><strong>Dietary requirements:</strong> <%= @event.dietary_requirements %></p>
 
   <div class="d-flex align-items-center pb-3">
+    <% if user_signed_in? && policy(@event).edit? %>
       <i class="fas fa-pen-square" aria-hidden="true"></i><h4><%= link_to "Edit", edit_event_path, class: "show-edit" %></h4>
+    <% end %>
+    <% if policy(@event).destroy? %>  
       <i class="fas fa-times" aria-hidden="true"></i><h4><%= link_to "Delete",
                 event_path(@event), class: "show-delete",
                 method: :delete,
                 data: { confirm: "Are you sure you want to delete #{@event.name}?" } %></h4>
+    <% end %>
   </div>
 
   <br>

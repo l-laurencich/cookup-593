@@ -34,7 +34,8 @@ end
 
 10.times do
   locations = ['Berger Straße 275, Frankfurt', 'Georg-Voigt-Str. 20, Frankfurt', 'Schweizer Straße 10, Frankfurt']
-  event = Event.new ({location: locations.sample, start: Faker::Time.forward(days: 25,  period: :evening, format: :long), end: Faker::Time.forward(days: 5,  period: :evening, format: :long), name: Faker::FunnyName.name, description: Faker::Food.description, dietary_requirements: Faker::Food.dish, menu: Faker::Food.dish, price: rand(0.0..10.0).round(1), capacity: rand(2..8), user: hosts.sample})
+  dietary_requirements = ['vegan', 'vegetarian', 'halal', 'kosher', 'lactose free', 'gluten-free']
+  event = Event.new ({location: locations.sample, start: Faker::Time.forward(days: 25,  period: :evening, format: :long), end: Faker::Time.forward(days: 5,  period: :evening, format: :long), name: Faker::FunnyName.name, description: Faker::Food.description, dietary_requirements: dietary_requirements.sample, menu: Faker::Food.dish, price: rand(0.0..10.0).round(1), capacity: rand(2..8), user: hosts.sample})
   file = URI.open("http://loremflickr.com/300/300/#{event.menu.gsub(' ','')}")
   event.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
   event.save
