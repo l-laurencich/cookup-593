@@ -18,6 +18,13 @@ class BookingsController < ApplicationController
     end
   end
 
+  def update
+    @booking = Booking.find(params[:id])
+    authorize @booking
+    @booking.update(booking_params)
+    redirect_to my_events_path
+  end
+
   def destroy
     @booking = Booking.find(params[:id])
     authorize @booking
@@ -28,6 +35,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:message, :event_id, :number_of_guests)
+    params.require(:booking).permit(:message, :event_id, :number_of_guests, :status)
   end
 end
