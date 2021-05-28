@@ -13,8 +13,8 @@
           </div>
           <div class="card-large-sub-footer">
               <p><%= event.location %></p>
-              <p><%= event.capacity %> free spots</p>
-              <p><%= event.start %></p>
+              <p><strong><%= event.capacity %> free spots</strong></p>
+              <p><%= event.start.strftime("%-d %b %Y, %H:%M") %></p>
           </div>
         <%# </div> %>
       <% end %>

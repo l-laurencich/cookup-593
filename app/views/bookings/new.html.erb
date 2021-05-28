@@ -3,8 +3,9 @@
   <%= simple_form_for [@event, @booking] do |f| %>
     <%= f.input :message, placeholder: 'Write a private message to your host' %>
     <%= f.input :number_of_guests, input_html: {min: 1}%>
-    <%= f.submit "Book this event!", class: 'btn btn-primary' %>
+    <%= f.submit "Book this event!", class: 'btn btn-simple' %>
   <% end %>
     <br>
-  <%= link_to "Go back to the event", event_path(@event) %>
+  <!--<%= link_to "Go back to the event", event_path(@event) %>-->
+  <%= link_to 'Back To Event', event_path(@event), class: 'btn btn-confirm' %>
 </div>
