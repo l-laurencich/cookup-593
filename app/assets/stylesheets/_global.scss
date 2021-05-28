@@ -53,14 +53,13 @@ p {
   padding: 20px 0 20px 0;
 }
 
-.fa {
-  font-size: 25px;
-  padding: 10px;
-  color: $dark-purple;
+.fas {
+  font-size: 20px;
+  padding: 0px 5px 0px 5px;
+  color: $pink;
 }
 
-.fas {
-  font-size: 25px;
-  padding: 0px 5px 0px 5px;
+.show-edit, .show-delete {
+  text-decoration: none !important;
   color: $dark-purple;
 }
