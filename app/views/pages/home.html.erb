@@ -1,102 +1,52 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1536392706976-e486e2ba97af?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8ZGlubmVyfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60);">
-  <div class="row justify-content-between">
-    <%= link_to image_tag("/assets/cookup_logo_white.png", :alt => "logo", :class => "banner_img"), root_path %>
-    <h2><%= link_to 'Login', new_user_session_path %></h2>
-  </div>
-  <div class="container">
-    <%= simple_form_for :search, url: root_path, method: :get do |f| %>
-      <div class="search-form-control form-group">
-        <input class="form-control string required" type="text" name="search[query]" placeholder="Find your next dinner..." id="search_query" />
-        <button name="button" type="submit" class="btn btn-icon">
-          <i class="fas fa-search"></i>
-        </button>
-      </div>
+<!--<a class="btn btn-simple" href="#">Simple</a>
+<a class="btn btn-cancel" href="#">Cancel</a>
+<a class="btn btn-confirm" href="#">Confirm</a>-->
+
+<div class="banner" >
+  <div class="container text-center">
+    <%= form_tag events_path, method: :get do %>
+        <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              placeholder: "Give me a city"
+             %>
+        <div class="btn btn-confirm my-3">
+          <%= submit_tag "Go" %>
+        </div>
     <% end %>
-    <%= link_to "show all events", events_path, class: "btn btn-confirm" %>
   </div>
 </div>
 
-<div class="card-container">
-
-  <!--<img class="avatar-bordered" alt="avatar" src="https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1617950447/ezgro2ykkw3sgnxgfuz3.jpg" />
-
-  <br>
-  <br>
-
-  <a class="btn btn-simple" href="#">Simple</a>
-  <a class="btn btn-cancel" href="#">Cancel</a>
-  <a class="btn btn-confirm" href="#">Confirm</a>
-
-  <br>
-  <br>
-
-  <div class="card-small">
-    <img src="https://images.unsplash.com/photo-1501623364001-70bfe454b916?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YXhlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60" alt="image">
-    <div class="card-small-info">
-      <h2>Axe Cut Food Feast</h2>
-      <p>Fresh Norwegian salmon, lightly brushed with our herbed Dijon mustard sauce, with choice of two sides.</p>
-    </div>
-  </div>-->
-
-  <div class="home-cards">
-
-    <div class="card-large">
-      <img src="https://images.unsplash.com/photo-1563176057-26febab5c153?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fGtvcmVhbiUyMGJicXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="image">
-      <div class="card-large-footer">
-        <div>
-          <h2>Korean BBQ Chicken</h2>
+<div class="container space-cards">
+  <h1 class="text-center">Welcome to cookUp</h1>
+  <hr class="w-80">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 mt-5">
+    <div class="col py-2">
+      <div class="card h-100">
+        <div class="card-body">
+          <%= image_tag 'friends.png', id: 'home_img', class: "card-img-top mx-auto my-3" %>
+          <h3 class="card-title">Meet Friends</h3>
+          <p class="card-text">Introduce yourself to new people</p>
         </div>
-        <h2>€ 7 pp</h2>
-      </div>
-      <div class="card-large-sub-footer">
-          <p>Berlin-Mitte</p>
-          <p>3 free spots</p>
-          <p>27.06.2021</p>
       </div>
     </div>
-
-      <div class="card-large">
-      <img src="https://images.unsplash.com/photo-1563176057-26febab5c153?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fGtvcmVhbiUyMGJicXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="image">
-      <div class="card-large-footer">
-        <div>
-          <h2>Korean BBQ Chicken</h2>
+    <div class="col py-2">
+      <div class="card h-100">
+        <div class="card-body">
+          <%= image_tag 'dinner.png', id: 'home_img', class: "card-img-top mx-auto my-3 pt-5 pb-3" %>
+          <h3 class="card-title">Eat Food</h3>
+          <p class="card-text">Delicious dinners with friendly people</p>
         </div>
-        <h2>€ 7 pp</h2>
-      </div>
-      <div class="card-large-sub-footer">
-          <p>Berlin-Mitte</p>
-          <p>3 free spots</p>
-          <p>27.06.2021</p>
       </div>
     </div>
-
-      <div class="card-large">
-      <img src="https://images.unsplash.com/photo-1563176057-26febab5c153?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fGtvcmVhbiUyMGJicXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="image">
-      <div class="card-large-footer">
-        <div>
-          <h2>Korean BBQ Chicken</h2>
+    <div class="col py-2">
+      <div class="card h-100">
+        <div class="card-body">
+          <%= image_tag 'community.png', id: 'home_img', class: "card-img-top mx-auto my-3 pt-4 pb-4" %>
+          <h3 class="card-title">Create Community</h3>
+          <p class="card-text">Build community wherever you are</p>
         </div>
-        <h2>€ 7 pp</h2>
-      </div>
-      <div class="card-large-sub-footer">
-          <p>Berlin-Mitte</p>
-          <p>3 free spots</p>
-          <p>27.06.2021</p>
       </div>
     </div>
-
-
-  </div>
-
-</div>
-
-<div class="footer">
-  <div class="footer-links">
-    <a href="#"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fab fa-facebook"></i></a>
-    <a href="#"><i class="fab fa-twitter"></i></a>
-  </div>
-  <div class="footer-copyright">
-    Made with <i class="fas fa-dumbbell"></i> by Anonymous Iguana
   </div>
 </div>

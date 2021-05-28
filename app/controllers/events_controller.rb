@@ -3,14 +3,22 @@ class EventsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    # @events = Event.all
-    @events = policy_scope(Event)
+    if params[:query].present?
+      @events = policy_scope(Event)
+      @events = @events.find_query(params[:query])if params[:query].present?
+      if @events.empty?
+        redirect_to events_path, notice:"Sorry, we could not find any event in #{params[:query]}, but you can create your own event!"
+      end
+    else
+      @events = policy_scope(Event)
+    end
 
     @markers = @events.geocoded.map do |event|
       {
         lat: event.latitude,
         lng: event.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { event: event })
+        info_window: render_to_string(partial: "info_window", locals: { event: event }),
+        image_url: helpers.asset_url('pizza_marker')
       }
     end
   end
@@ -68,6 +76,6 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:start, :name, :menu, :location, :price, :capacity, :description, :dietary_requirements)
+    params.require(:event).permit(:start, :name, :menu, :location, :price, :capacity, :description, :dietary_requirements, :photo)
   end
 end

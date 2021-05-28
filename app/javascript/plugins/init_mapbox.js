@@ -14,8 +14,14 @@ const buildMap = (mapElement) => {
 const addMarkersToMap = (map, markers) => {
   markers.forEach((marker) => {
     const popup = new mapboxgl.Popup().setHTML(marker.info_window);
+    const element = document.createElement('div');
+    element.className = 'marker';
+    element.style.backgroundImage = `url('${marker.image_url}')`;
+    element.style.backgroundSize = 'contain';
+    element.style.width = '40px';
+    element.style.height = '45px';
 
-    new mapboxgl.Marker()
+    new mapboxgl.Marker(element)
       .setLngLat([ marker.lng, marker.lat ])
       .setPopup(popup) 
       .addTo(map);
@@ -25,7 +31,7 @@ const addMarkersToMap = (map, markers) => {
 const fitMapToMarkers = (map, markers) => {
   const bounds = new mapboxgl.LngLatBounds();
   markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
-  map.fitBounds(bounds, { padding: 100, maxZoom: 8, duration: 4000 });
+  map.fitBounds(bounds, { padding: 100, maxZoom: 10, duration: 4000 });
 };
 
 const initMapbox = () => {
