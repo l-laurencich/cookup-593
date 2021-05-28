@@ -8,6 +8,7 @@ class Event < ApplicationRecord
   validates :price, numericality: { greater_than: 0, less_than: 20 }
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
+  has_one_attached :photo
 
   def self.find_query(query)
     events = all
