@@ -8,11 +8,12 @@
         <%= text_field_tag :query,
               params[:query],
               class: "form-control",
-              placeholder: "Give me a city"
+              placeholder: "Find your next dinner in ...",
+              style: "border-radius: 15px"
              %>
-        <div class="btn btn-confirm my-3">
-          <%= submit_tag "Go" %>
-        </div>
+        <%# <div class="btn btn-confirm my-3"> %>
+          <%= submit_tag "Search", class:"btn btn-confirm my-3" %>
+        <%# </div> %>
     <% end %>
   </div>
 </div>
