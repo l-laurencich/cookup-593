@@ -2,43 +2,55 @@
   <div class="list-group">
       <h3>My hosted events (<%= @events.count%>):</h3>
       <br>
-      <%  @events.each do |event| %>
-        <div class="list-group-item list-group-item-action flex-column align-items-start">
-          <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1"><strong><%= event.name %></strong></h5>
-            <p class="mb-1"><em>When?</em> <%= event.start %></p>
-            <p><%= link_to "Details", event_path(event), class: "btn-simple" %></p>
-          </div>
-          <br>
-          <p>This event has <%= pluralize event.bookings.count, 'booking' %>:</p>
-          
-          <%  event.bookings.each do |booking| %>
-            <div class="list-group-item list-group-item-action flex-column align-items-start">
-              <div class="d-flex w-100 justify-content-between">
-                <div class="d-flex align-items-center">
-                  <img class="avatar-bordered mr-3 mb-3" alt="avatar" src="https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1617950447/ezgro2ykkw3sgnxgfuz3.jpg" />
-                  <h5 class="mb-1"><%= booking.user.email %></h5>
-                </div>
-                <small><%= pluralize booking.number_of_guests, 'guest' %></small>
-              </div>
-              <div class="d-flex w-100 justify-content-between">
-                <p class="mb-1">message: <%= booking.message %></p>
-                <p>Status: <%= booking.status %></p>
-                 <%# <%= link_to 'Confirm Booking', booking_path(booking, status: "approved"), method: :patch %>
-                 <small>
-                  <%= link_to "✅ Confirm", [booking, { booking: { status: 'approved' }}], method: 'patch', remote: true%>
-                  <%= link_to "❌ Decline", [booking, { booking: { status: 'rejected' }}], method: 'patch', remote: true %>
-                 </small>
-                <%# <%= simple_form_for(booking, url: booking_path(booking), html: { method: :patch }) do |f| %>
-                  <%# <%= f.input :status, collection: %w(rejected approved)%>
-                  <%# <%= f.button :submit %>
-                <%# <% end %> 
-                <%# <small>✅ Confirm ❌ Decline </small> %>
-              </div>
+      <div>
+      <% if @events.blank? %>
+        <p>You haven't created any event yet!</p>
+      <% else %>
+        <%  @events.each do |event| %>
+          <div class="list-group-item list-group-item-action flex-column align-items-start">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1"><strong><%= event.name %></strong></h5>
+              <p class="mb-1"><em>When?</em> <%= event.start %></p>
+              <p><%= link_to "Details", event_path(event), class: "btn-simple" %></p>
             </div>
-          <% end %>
-        </div>
-      <% end %>
+            <br>
+            <p>This event has <%= pluralize event.bookings.count, 'booking' %>:</p>
+            
+            <% if event.bookings.blank? %>
+              <p>Add more information to your event to make it more interesting to other users!</p>
+            <% else %>
+            <%  event.bookings.each do |booking| %>
+              <div class="list-group-item list-group-item-action flex-column align-items-start">
+                <div class="d-flex w-100 justify-content-between">
+                  <div class="d-flex align-items-center">
+                    <% if current_user.photo.attached? %>
+                      <%= cl_image_tag booking.user.photo.key, class: "avatar mb-3 mr-3" %>
+                    <% end %>
+                    <h5 class="mb-1"><%= booking.user.first_name %></h5>
+                  </div>
+                  <small><%= pluralize booking.number_of_guests, 'guest' %></small>
+                </div>
+                <div class="d-flex w-100 justify-content-between">
+                  <p class="mb-1">message: <%= booking.message %></p>
+                  <p>Status: <%= booking.status %></p>
+                  <%# <%= link_to 'Confirm Booking', booking_path(booking, status: "approved"), method: :patch %>
+                  <small>
+                    <%= link_to "✅ Confirm", [booking, { booking: { status: 'approved' }}], method: 'patch', remote: true%>
+                    <%= link_to "❌ Decline", [booking, { booking: { status: 'rejected' }}], method: 'patch', remote: true %>
+                  </small>
+                  <%# <%= simple_form_for(booking, url: booking_path(booking), html: { method: :patch }) do |f| %>
+                    <%# <%= f.input :status, collection: %w(rejected approved)%>
+                    <%# <%= f.button :submit %>
+                  <%# <% end %> 
+                  <%# <small>✅ Confirm ❌ Decline </small> %>
+                </div>
+              </div>
+            <% end %>
+            <% end %>
+          </div>
+        <% end %>
+        <% end %>
+      </div>
   </div>
   <br>
   <%= link_to 'Back To Events', events_path, class: 'btn btn-confirm' %>
