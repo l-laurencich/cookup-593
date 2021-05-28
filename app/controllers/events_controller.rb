@@ -16,7 +16,8 @@ class EventsController < ApplicationController
       {
         lat: event.latitude,
         lng: event.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { event: event })
+        info_window: render_to_string(partial: "info_window", locals: { event: event }),
+        image_url: helpers.asset_url('pizza_marker')
       }
     end
   end
@@ -74,6 +75,6 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:start, :name, :menu, :location, :price, :capacity, :description, :dietary_requirements)
+    params.require(:event).permit(:start, :name, :menu, :location, :price, :capacity, :description, :dietary_requirements, :photo)
   end
 end

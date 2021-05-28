@@ -38,6 +38,10 @@
                   autofocus: true,
                   input_html: { autocomplete: "interests" },
                   placeholder: 'Yoga, Football, Classic Movies, ...'%>
+      <%= f.input :photo, as: :file,
+                  required: false,
+                  autofocus: true,
+                  label: 'Add a Profile Picture' %>
     </div>
 
     <div class="form-actions flexbox">
