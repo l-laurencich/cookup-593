@@ -19,17 +19,21 @@
                   <img class="avatar-bordered mr-3 mb-3" alt="avatar" src="https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1617950447/ezgro2ykkw3sgnxgfuz3.jpg" />
                   <h5 class="mb-1"><%= booking.user.email %></h5>
                 </div>
-                <small><%= booking.number_of_guests %> guests</small>
+                <small><%= pluralize booking.number_of_guests, 'guest' %></small>
               </div>
               <div class="d-flex w-100 justify-content-between">
                 <p class="mb-1">message: <%= booking.message %></p>
                 <p>Status: <%= booking.status %></p>
-                 <%= link_to 'Confirm Booking', booking_path(booking, status: "approved"), method: :patch %>
-                <%= simple_form_for(booking, url: booking_path(booking), html: { method: :patch }) do |f| %>
-                  <%= f.input :status, collection: %w(rejected approved)%>
-                  <%= f.button :submit %>
-                <% end %>
-                <small>✅ Confirm ❌ Decline </small>
+                 <%# <%= link_to 'Confirm Booking', booking_path(booking, status: "approved"), method: :patch %>
+                 <small>
+                  <%= link_to "✅ Confirm", [booking, { booking: { status: 'approved' }}], method: 'patch', remote: true%>
+                  <%= link_to "❌ Decline", [booking, { booking: { status: 'rejected' }}], method: 'patch', remote: true %>
+                 </small>
+                <%# <%= simple_form_for(booking, url: booking_path(booking), html: { method: :patch }) do |f| %>
+                  <%# <%= f.input :status, collection: %w(rejected approved)%>
+                  <%# <%= f.button :submit %>
+                <%# <% end %> 
+                <%# <small>✅ Confirm ❌ Decline </small> %>
               </div>
             </div>
           <% end %>

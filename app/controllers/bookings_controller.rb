@@ -19,7 +19,10 @@ class BookingsController < ApplicationController
   end
 
   def update
-    raise
+    @booking = Booking.find(params[:id])
+    authorize @booking
+    @booking.update(booking_params)
+    redirect_to my_events_path
   end
 
   def destroy

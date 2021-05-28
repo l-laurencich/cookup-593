@@ -20,7 +20,7 @@
 
   <div class="d-flex">
     <p>
-      <% if policy(@event).edit? %>
+      <% if user_signed_in? && policy(@event).edit? %>
       🖊 <%= link_to "Edit", edit_event_path %>
       <% end %>
       <% if policy(@event).destroy? %>
