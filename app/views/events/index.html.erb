@@ -1,4 +1,13 @@
 <div class="index-container">
+    <%= form_tag events_path, method: :get do %>
+          <%= text_field_tag :query,
+                params[:query],
+                class: "form-control",
+                placeholder: "Find your next dinner in ...",
+                style: "border-radius: 15px"
+              %>
+      <% end %>
+      <br>
   <div class="row justify-content-center">
     <div class="col-6 cards">
       <% @events.each do |event| %>
